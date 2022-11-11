@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Remember } from '../remember.model';
 import { RememberService } from '../remember.service';
+import { Router } from '@angular/router';
+import { PoNotificationService } from '@po-ui/ng-components';
 
 
 @Component({
@@ -9,12 +12,23 @@ import { RememberService } from '../remember.service';
 })
 export class RememberCreateComponent implements OnInit {
 
-  constructor(private rememberService: RememberService) { }
+  remember: Remember = {
+    description: '',
+    date: ''
+  }
+
+  constructor(
+    private rememberService: RememberService,
+    private router: Router,
+    private poNotification: PoNotificationService
+    ) { }
 
   ngOnInit() {
   }
-  create(){
-    //this.rememberService.create()
+  create(): void{
+    this.rememberService.create(this.remember).subscribe(() =>
+    this.router.navigate(['/remembers'])),
+    this.poNotification.success('Remember included successfully!')
   }
 
   cancel(){

@@ -14,9 +14,6 @@ export class RememberService {
     private http: HttpClient,
     private router: Router
     ) { }
-  showHomeConsole(msg: string): void{
-    console.log(msg)
-  }
 
   create(remember: Remember): Observable<Remember>{
     return this.http.post<Remember>(this.url, remember)

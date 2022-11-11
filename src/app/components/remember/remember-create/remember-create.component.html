@@ -1,13 +1,29 @@
-<div class="po-row">
-  <po-button
-    class="po-md-2"
-    p-icon="fa fa-check-circle"
-    p-label="Create"
-  ></po-button>
-  <po-button
-    class="po-md-2"
-    p-icon="fa fa-check-circle"
-    p-label="Cancel"
-    (p-click)="cancel()"
-  ></po-button>
-</div>
+<po-page-default p-title="New Remember">
+  <po-container class="po-lg-6">
+    <div class="po-row">
+      <po-input
+        name="name"
+        p-label="Description"
+        [(ngModel)]="remember.description"
+      >
+      </po-input>
+    </div>
+    <div class="po-row">
+      <po-input name="date" p-label="date" [(ngModel)]="remember.date">
+      </po-input>
+    </div>
+    <div class="po-row">
+      <po-button
+        class="po-md-2"
+        p-icon="fa fa-check-circle"
+        p-label="Create"
+        (p-click)="create()"
+      ></po-button>
+      <po-button
+        class="po-md-2"
+        p-icon="fa fa-check-circle"
+        p-label="Cancel"
+        (p-click)="cancel()"
+      ></po-button>
+    </div> </po-container
+></po-page-default>
