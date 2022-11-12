@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PoTableColumn } from '@po-ui/ng-components';
+import { Remember } from '../components/remember/remember.model';
+import { RememberService } from '../components/remember/remember.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  remembers: Remember[] = [];
+
+
+
+  constructor(private rememberService: RememberService) { }
 
   ngOnInit(): void {
+    this.rememberService.read().subscribe(remembers => {
+      this.remembers = remembers
+      console.log(remembers)
+    })
   }
 
 }

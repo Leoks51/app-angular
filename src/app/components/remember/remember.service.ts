@@ -19,6 +19,11 @@ export class RememberService {
     return this.http.post<Remember>(this.url, remember)
   }
 
+  read(): Observable<Remember[]>{
+    return this.http.get<Remember[]>(this.url)
+
+  }
+
   cancel(){
     this.router.navigate(['/remembers'])
   }
