@@ -9,6 +9,7 @@ import { PoModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
 import { PoToolbarModule } from '@po-ui/ng-components';
 import { PoFieldModule } from '@po-ui/ng-components';
+import { PoPageDynamicTableModule } from '@po-ui/ng-templates';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -16,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RememberCrudComponent } from './remember/remember-crud/remember-crud.component';
 import { RememberCreateComponent } from './components/remember/remember-create/remember-create.component';
+import { RememberViewComponent } from './components/remember/remember-view/remember-view.component';
 
 
 
@@ -26,7 +28,8 @@ import { RememberCreateComponent } from './components/remember/remember-create/r
     FooterComponent,
     HomeComponent,
     RememberCrudComponent,
-    RememberCreateComponent
+    RememberCreateComponent,
+    RememberViewComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { RememberCreateComponent } from './components/remember/remember-create/r
     PoToolbarModule,
     HttpClientModule,
     FormsModule,
-    PoFieldModule
+    PoFieldModule,
+    PoPageDynamicTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
