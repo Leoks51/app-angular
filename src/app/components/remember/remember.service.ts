@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class RememberService {
+  showMessage(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   url= "http://localhost:3000/remembers"
 
   constructor(
@@ -24,13 +27,25 @@ export class RememberService {
 
   }
 
+  readById(id: string): Observable<Remember> {
+    const dataUrl = `${this.url}/${id}`;
+    return this.http.get<Remember>(dataUrl)
+  }
+
+  update(remember: Remember): Observable<Remember> {
+    const dataUrl = `${this.url}/${remember.id}`;
+    return this.http.put<Remember>(dataUrl, remember)
+  }
+
+
+  delete(id: string): Observable<Remember>{
+    const base = `${this.url}`;
+    return this.http.delete<Remember>(base);
+  }
+
   cancel(){
     this.router.navigate(['/remembers'])
   }
-
-  delete(){
-     this.http.delete('')
-    };
   }
 
 

@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 import { PoPageAction, PoPageFilter, PoTableColumn } from '@po-ui/ng-components';
@@ -28,6 +29,8 @@ export class RememberViewComponent implements OnInit {
   ];
 
   remembers: Remember[] = [];
+  remember: any;
+
 
   constructor(private rememberService: RememberService) { }
 
@@ -37,11 +40,10 @@ export class RememberViewComponent implements OnInit {
      // console.log(remembers)
     })
   }
-  deleteRemember() {
-    this.rememberService.delete();
-    console.log('deletou')
-
-
+  deleteRemember(): void {
+    this.rememberService.delete(this.remember.id).subscribe(() => {
+      this.rememberService.showMessage("Produto excluido com sucesso!");
+    });
   }
 
   filter() {
