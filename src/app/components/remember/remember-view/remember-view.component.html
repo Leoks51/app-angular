@@ -1,14 +1,11 @@
-<po-page-list
-  p-title="RememberView"
-  [p-actions]="actions"
-  [p-filter]="filterSettings"
->
+<po-page-list p-title="RememberView" [p-filter]="filterSettings">
   <po-table
     [p-columns]="columns"
     [p-items]="remembers"
     [p-height]="400"
     [p-sort]="true"
     [p-striped]="true"
+    [p-actions]="actions"
   >
   </po-table>
 </po-page-list>

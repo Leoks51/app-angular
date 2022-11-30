@@ -17,7 +17,7 @@ export class RememberViewComponent implements OnInit {
   };
 
   readonly actions: Array<PoPageAction> = [
-    // actions of table here
+    { label: 'Apagar', action: this.deleteRemember.bind(this) },
   ];
 
   readonly columns: Array<PoTableColumn> = [
@@ -37,6 +37,13 @@ export class RememberViewComponent implements OnInit {
      // console.log(remembers)
     })
   }
+  deleteRemember() {
+    this.rememberService.delete();
+    console.log('deletou')
+
+
+  }
+
   filter() {
     const filters = this.remembers.map(remembers => remembers);
   }

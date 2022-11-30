@@ -28,5 +28,9 @@ export class RememberService {
     this.router.navigate(['/remembers'])
   }
 
+  delete(){
+     this.http.delete('')
+    };
+  }
 
-}
+

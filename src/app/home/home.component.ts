@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PoTableColumn } from '@po-ui/ng-components';
 import { Remember } from '../components/remember/remember.model';
 import { RememberService } from '../components/remember/remember.service';
 
