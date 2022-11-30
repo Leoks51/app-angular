@@ -1,7 +1,11 @@
-<po-page-list p-title="RememberView" [p-actions]="actions">
+<po-page-list
+  p-title="RememberView"
+  [p-actions]="actions"
+  [p-filter]="filterSettings"
+>
   <po-table
     [p-columns]="columns"
-    [p-items]="items"
+    [p-items]="remembers"
     [p-height]="400"
     [p-sort]="true"
     [p-striped]="true"

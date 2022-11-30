@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PoPageAction, PoTableColumn } from '@po-ui/ng-components';
+import { PoPageAction, PoPageFilter, PoTableColumn } from '@po-ui/ng-components';
+import { Remember } from '../remember.model';
+import { RememberService } from '../remember.service';
 
 @Component({
   selector: 'app-remember-view',
@@ -9,25 +11,38 @@ import { PoPageAction, PoTableColumn } from '@po-ui/ng-components';
 })
 export class RememberViewComponent implements OnInit {
 
+  public readonly filterSettings: PoPageFilter = {
+    action: this.filterAction.bind(this),
+    placeholder: 'Search'
+  };
+
   readonly actions: Array<PoPageAction> = [
     // actions of table here
   ];
 
   readonly columns: Array<PoTableColumn> = [
     // columns of table here
-    { property: 'name', width: '50%' },
-    { property: 'age', width: '15%' },
-    { property: 'email', width: '35%' }
+    { property: 'id', width: '15%' },
+    { property: 'description', width: '50%' },
+    { property: 'date', width: '35%' }
   ];
 
-  items: Array<any> = [];
+  remembers: Remember[] = [];
 
-  constructor() { }
+  constructor(private rememberService: RememberService) { }
 
-  ngOnInit() {
-    this.items = [
-      { name: 'John Doe', age: 33, email: 'johndoe@example.com' }
-    ];
-   }
+  ngOnInit(): void {
+    this.rememberService.read().subscribe(remembers => {
+      this.remembers = remembers
+     // console.log(remembers)
+    })
+  }
+  filter() {
+    const filters = this.remembers.map(remembers => remembers);
+  }
 
+  filterAction(labelFilter: string | Array<string>) {
+    const filter = typeof labelFilter === 'string' ? [labelFilter] : [...labelFilter];
+    this.filter();
+  }
 }

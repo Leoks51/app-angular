@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.rememberService.read().subscribe(remembers => {
       this.remembers = remembers
-      console.log(remembers)
+     // console.log(remembers)
     })
   }
 
