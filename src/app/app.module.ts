@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { RememberCrudComponent } from './remember/remember-crud/remember-crud.component';
 import { RememberCreateComponent } from './components/remember/remember-create/remember-create.component';
 import { RememberViewComponent } from './components/remember/remember-view/remember-view.component';
+import { RememberModalComponent } from './components/remember/remember-modal/remember-modal.component';
 
 
 
@@ -29,7 +30,8 @@ import { RememberViewComponent } from './components/remember/remember-view/remem
     HomeComponent,
     RememberCrudComponent,
     RememberCreateComponent,
-    RememberViewComponent
+    RememberViewComponent,
+    RememberModalComponent
   ],
   imports: [
     BrowserModule,

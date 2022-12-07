@@ -32,6 +32,7 @@ export class RememberViewComponent implements OnInit {
   remember: any;
 
 
+
   constructor(private rememberService: RememberService) { }
 
   ngOnInit(): void {
