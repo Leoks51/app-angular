@@ -1,5 +1,6 @@
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PoPageAction, PoPageFilter, PoTableColumn } from '@po-ui/ng-components';
 import { Remember } from '../remember.model';
@@ -19,6 +20,7 @@ export class RememberViewComponent implements OnInit {
 
   readonly actions: Array<PoPageAction> = [
     { label: 'Apagar', action: this.deleteRemember.bind(this) },
+    { label: 'Editar', action: this.toRememberEdit.bind(this) },
   ];
 
   readonly columns: Array<PoTableColumn> = [
@@ -33,7 +35,7 @@ export class RememberViewComponent implements OnInit {
 
 
 
-  constructor(private rememberService: RememberService) { }
+  constructor(private rememberService: RememberService, private router: Router) { }
 
   ngOnInit(): void {
     this.rememberService.read().subscribe(remembers => {
@@ -41,6 +43,12 @@ export class RememberViewComponent implements OnInit {
      // console.log(remembers)
     })
   }
+
+
+  toRememberEdit(): void{
+    this.router.navigate(['/remembers/edit'])
+ }
+
   deleteRemember(): void {
     this.rememberService.delete(this.remember.id).subscribe(() => {
       this.rememberService.showMessage("Produto excluido com sucesso!");
