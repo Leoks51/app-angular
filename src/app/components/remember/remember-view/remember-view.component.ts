@@ -46,7 +46,7 @@ export class RememberViewComponent implements OnInit {
 
 
   toRememberEdit(): void{
-    this.router.navigate(['/remembers/edit'])
+    this.router.navigate(['/remembers/edit/:id'])
  }
 
   deleteRemember(): void {

@@ -1,5 +1,5 @@
 export interface Remember{
-  id?: number
-  description: string
+  id?: number,
+  description: string,
   date: string
 }

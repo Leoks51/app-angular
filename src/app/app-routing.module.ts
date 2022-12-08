@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "remembers", component: RememberCrudComponent },
   { path: "remembers/create", component: RememberCreateComponent},
-  { path: "remembers/edit", component: RememberModalComponent}
+  { path: "remembers/edit/:id", component: RememberModalComponent}
 
 
 ];
