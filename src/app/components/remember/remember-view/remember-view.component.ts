@@ -49,11 +49,22 @@ export class RememberViewComponent implements OnInit {
     this.router.navigate(['/remembers/edit/:id'])
  }
 
-  deleteRemember(): void {
+ deleteRemember(remember: Remember): void {
+  this.remembers = this.remembers.filter(r => r !== remember);
+  this.rememberService
+    .delete(remember.id)
+    .subscribe();
+  /*
+  // oops ... subscribe() is missing so nothing happens
+  this.heroesService.deleteHero(hero.id);
+  */
+}
+
+  /*deleteRemember(): void {
     this.rememberService.delete(this.remember.id).subscribe(() => {
       this.rememberService.showMessage("Produto excluido com sucesso!");
     });
-  }
+  }*/
 
   filter() {
     const filters = this.remembers.map(remembers => remembers);
