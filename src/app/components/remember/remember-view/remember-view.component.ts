@@ -13,6 +13,10 @@ import { RememberService } from '../remember.service';
 })
 export class RememberViewComponent implements OnInit {
 
+  public readonly butn: Array<PoPageAction> = [
+    { label: 'New Remember', action: this.toRememberCreate.bind(this) }
+  ];
+
   public readonly filterSettings: PoPageFilter = {
     action: this.filterAction.bind(this),
     placeholder: 'Search'
@@ -48,6 +52,10 @@ export class RememberViewComponent implements OnInit {
   toRememberEdit(): void{
     this.router.navigate(['/remembers/edit/:id'])
  }
+
+ toRememberCreate(): void{
+  this.router.navigate(['/remembers/create'])
+}
 
  deleteRemember(remember: Remember): void {
   this.remembers = this.remembers.filter(r => r !== remember);

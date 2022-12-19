@@ -15,8 +15,4 @@ export class RememberCrudComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toRememberCreate(): void{
-     this.router.navigate(['/remembers/create'])
-  }
-
 }

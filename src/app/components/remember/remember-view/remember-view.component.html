@@ -1,4 +1,8 @@
-<po-page-list p-title="RememberView" [p-filter]="filterSettings">
+<po-page-list
+  p-title="RememberView"
+  [p-filter]="filterSettings"
+  [p-actions]="butn"
+>
   <po-table
     [p-columns]="columns"
     [p-items]="remembers"
