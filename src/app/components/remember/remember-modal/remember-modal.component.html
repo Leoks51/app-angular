@@ -1,11 +1,17 @@
 <po-page-default p-title="Edit Remember">
   <po-container class="po-lg-6">
     <div class="po-row">
-      <po-input name="description" p-label="Description" p-required="true">
+      <po-input
+        name="description"
+        p-label="Description"
+        p-required="true"
+        [(ngModel)]="remember.description"
+      >
       </po-input>
     </div>
     <div class="po-row">
-      <po-input name="date" p-label="date"> </po-input>
+      <po-input name="date" p-label="date" [(ngModel)]="remember.description">
+      </po-input>
     </div>
     <div class="po-row">
       <po-button

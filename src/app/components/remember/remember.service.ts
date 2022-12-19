@@ -38,21 +38,21 @@ export class RememberService {
   //  const dataUrl = `${this.url}/${id}`;
   //  return this.http.get<Remember>(dataUrl)
  // }
-  readById(id: any): Observable<Remember>{
-    return this.http.get<Remember>(`${this.url}/${id}`)
-  }
+ readById(id: any): Observable<Remember>{
+  const url= `${this.url}/${id}`
+  return this.http.get<Remember>(url)
+}
 
   update(remember: Remember): Observable<Remember> {
-    const dataUrl = `${this.url}/${remember.id}`;
-    return this.http.put<Remember>(dataUrl, remember)
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', 'my-new-auth-token');
+      return this.http.put<Remember>(this.url, remember, httpOptions);
   }
 
   delete(id: number): Observable<unknown> {
     const url = `${this.url}/${id}`; // DELETE api/heroes/42
     return this.http.delete(url, httpOptions)
-      .pipe(
-
-      );
+      .pipe();
   }
 
   cancel(){

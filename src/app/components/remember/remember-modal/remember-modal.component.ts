@@ -10,10 +10,9 @@ import { RememberService } from '../remember.service';
   styleUrls: ['./remember-modal.component.scss']
 })
 export class RememberModalComponent implements OnInit {
-    remember: Remember = {
-    description: '',
-    date: ''
-  }
+  remember!: Remember;
+
+
 
   constructor(
     private rememberService: RememberService,
@@ -23,12 +22,13 @@ export class RememberModalComponent implements OnInit {
     ) { }
 
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-    this.rememberService.readById(id!).subscribe(remember =>{
-      this.remember = remember
-    });
-  }
+    ngOnInit(): void {
+      const id = this.route.snapshot.paramMap.get('id') || ''
+      this.rememberService.readById(id).subscribe(prduct => {
+        this.remember = this.remember
+
+      });
+    }
 
   update(){
     this.rememberService.update(this.remember).subscribe(() =>{
