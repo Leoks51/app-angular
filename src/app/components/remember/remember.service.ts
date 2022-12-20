@@ -36,8 +36,6 @@ export class RememberService {
 
   searchRemembers(term: string): Observable<Remember[]> {
     term = term.trim();
-
-    // Add safe, URL encoded search parameter if there is a search term
     const options = term ?
      { params: new HttpParams().set('id'||'date', term) } : {};
 
