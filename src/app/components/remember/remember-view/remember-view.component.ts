@@ -18,7 +18,7 @@ export class RememberViewComponent implements OnInit {
   ];
 
   public readonly filterSettings: PoPageFilter = {
-    action: this.filterAction.bind(this),
+    action: this.search.bind(this),
     placeholder: 'Search'
   };
 
@@ -41,6 +41,7 @@ export class RememberViewComponent implements OnInit {
 
   constructor(private rememberService: RememberService, private router: Router) { }
 
+
   ngOnInit(): void {
     this.rememberService.read().subscribe(remembers => {
       this.remembers = remembers
@@ -62,24 +63,18 @@ export class RememberViewComponent implements OnInit {
   this.rememberService
     .delete(remember.id)
     .subscribe();
-  /*
-  // oops ... subscribe() is missing so nothing happens
-  this.heroesService.deleteHero(hero.id);
-  */
+
 }
 
-  /*deleteRemember(): void {
-    this.rememberService.delete(this.remember.id).subscribe(() => {
-      this.rememberService.showMessage("Produto excluido com sucesso!");
-    });
-  }*/
-
-  filter() {
-    const filters = this.remembers.map(remembers => remembers);
+search(searchTerm: string) {
+  //this.editHero = undefined;
+  if (searchTerm) {
+    this.rememberService
+      .searchRemembers(searchTerm)
+      .subscribe(remembers => (this.remembers = remembers));
+  } else {
+    this.rememberService.read();
   }
+}
 
-  filterAction(labelFilter: string | Array<string>) {
-    const filter = typeof labelFilter === 'string' ? [labelFilter] : [...labelFilter];
-    this.filter();
-  }
 }

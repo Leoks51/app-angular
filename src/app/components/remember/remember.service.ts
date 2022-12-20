@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Remember } from './remember.model';
@@ -32,6 +32,18 @@ export class RememberService {
   read(): Observable<Remember[]>{
     return this.http.get<Remember[]>(this.url)
 
+  }
+
+  searchRemembers(term: string): Observable<Remember[]> {
+    term = term.trim();
+
+    // Add safe, URL encoded search parameter if there is a search term
+    const options = term ?
+     { params: new HttpParams().set('id'||'date', term) } : {};
+
+    return this.http.get<Remember[]>(this.url, options)
+      .pipe(
+      );
   }
 
   //readById(id: string): Observable<Remember> {
