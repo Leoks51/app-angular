@@ -67,7 +67,6 @@ export class RememberViewComponent implements OnInit {
 }
 
 search(searchTerm: string) {
-  //this.editHero = undefined;
   if (searchTerm) {
     this.rememberService
       .searchRemembers(searchTerm)
