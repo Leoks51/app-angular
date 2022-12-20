@@ -50,7 +50,7 @@ export class RememberService {
   }
 
   delete(id: number): Observable<unknown> {
-    const url = `${this.url}/${id}`; // DELETE api/heroes/42
+    const url = `${this.url}/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe();
   }

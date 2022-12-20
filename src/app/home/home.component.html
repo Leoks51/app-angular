@@ -1,5 +1,5 @@
 <div class="po-wrap" *ngFor="let remember of remembers">
-  <po-widget class="po-lg-2 po-mt-2" p-title="Lembretes">
+  <po-widget class="po-lg-2 po-mt-2" p-title="{{ remember.date }}">
     <div class="po-pull-right">
       <span class="po-pull-right po-font-title" id="desc-text"
         >{{ remember.description }}
@@ -7,5 +7,4 @@
     </div>
   </po-widget>
 </div>
-<app-remember-view></app-remember-view>
 <router-outlet></router-outlet>

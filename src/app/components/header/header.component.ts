@@ -12,11 +12,12 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  title = 'App-Remember'
+  title = 'Welcome to App Remember'
 
   public readonly menuItems: Array<PoMenuPanelItem> = [
     { label: 'Lembretes', action: this.changeTitle.bind(this), icon: 'po-icon-home', link: "/"},
-    { label: 'Criar', action: this.changeTitle.bind(this), icon: 'po-icon-plus', link: "/remembers"}
+    { label: 'List', action: this.changeTitle.bind(this), icon: 'po-icon-list', link: "/remembers/view"},
+    { label: 'Criar', action: this.changeTitle.bind(this), icon: 'po-icon-plus', link: "/remembers"},
   ];
 
   changeTitle(menu: PoMenuPanelItem) {
